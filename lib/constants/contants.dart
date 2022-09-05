@@ -11,3 +11,11 @@ class ApiLatestNewsUrl extends Constants {
 
   get getLatestNewsUrl => _baseUrl + Api().getApiKey;
 }
+
+class ApiSearchNewsUrl extends Constants {
+  final String key = Api().getApiKey;
+  final String _baseUrl =
+      "https://newsapi.org/v2/everything?pageSize=10&apiKey=";
+
+  get getSearchNewsUrl => "${_baseUrl + Api().getApiKey}&q=";
+}

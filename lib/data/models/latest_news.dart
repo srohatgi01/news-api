@@ -1,17 +1,16 @@
 // To parse this JSON data, do
 //
-//     final latestNews = latestNewsFromJson(jsonString);
+//     final NewsData = NewsDataFromJson(jsonString);
 
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
-LatestNews latestNewsFromJson(String str) =>
-    LatestNews.fromJson(json.decode(str));
+NewsData newsDataFromJson(String str) => NewsData.fromJson(json.decode(str));
 
-String latestNewsToJson(LatestNews data) => json.encode(data.toJson());
+String newsDataToJson(NewsData data) => json.encode(data.toJson());
 
-class LatestNews {
-  LatestNews({
+class NewsData {
+  NewsData({
     required this.status,
     required this.totalResults,
     required this.articles,
@@ -21,7 +20,7 @@ class LatestNews {
   final int totalResults;
   final List<Article> articles;
 
-  factory LatestNews.fromJson(Map<String, dynamic> json) => LatestNews(
+  factory NewsData.fromJson(Map<String, dynamic> json) => NewsData(
         status: json["status"],
         totalResults: json["totalResults"],
         articles: List<Article>.from(
